@@ -3,29 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz Escolar Street</title>
+  <title>Street Arcade Quiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1 class="titulo">🎮 QUIZ SCHOOL STREET 🎮</h1>
+<canvas id="bg"></canvas>
 
-    <div id="quiz-box" class="quiz-box">
-      <h2 id="question">Pergunta aqui</h2>
+<div class="ui">
 
-      <div id="answers" class="answers"></div>
+  <h1 class="logo">STREET ARCADE QUIZ</h1>
 
-      <button id="nextBtn" class="btn">Próxima</button>
-    </div>
+  <div id="menu" class="panel">
+    <input id="name" placeholder="Seu nome street..." />
+    
+    <select id="level">
+      <option value="easy">Fácil</option>
+      <option value="medium">Médio</option>
+      <option value="hard">Difícil</option>
+    </select>
 
-    <div id="result" class="result hidden">
-      <h2>Resultado Final</h2>
-      <p id="score"></p>
-      <button onclick="location.reload()" class="btn">Jogar de novo</button>
+    <button onclick="start()" class="btn">START</button>
+
+    <div class="ranking">
+      <h3>🏆 TOP STREET</h3>
+      <div id="rank"></div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <div id="game" class="panel hidden">
+
+    <div class="hud">
+      <span id="player"></span>
+      <span>Score: <b id="score">0</b></span>
+      <span>Combo: <b id="combo">x0</b></span>
+    </div>
+
+    <h2 id="question"></h2>
+
+    <div id="answers"></div>
+
+    <button id="next" class="btn hidden">NEXT</button>
+  </div>
+
+  <div id="end" class="panel hidden">
+    <h1>GAME OVER</h1>
+    <p id="final"></p>
+    <button onclick="location.reload()" class="btn">RETRY</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
